@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>xuebox 演示文档</title>
+<style type="text/css">
+<!--
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background-color: #42413C;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+
+.container {
+	width: 960px;
+	background-color: #FFF;
+	margin: 0 auto; /* 侧边的自动值与宽度结合使用，可以将布局居中对齐 */
+}
+
+
+.header {
+	background-color: #ADB96E;
+}
+
+.content {
+
+	padding: 10px 10px;
+}
+.even{ background-color:#F2F2F2;}
+-->
+</style>
+<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="jquery.xuebox.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	//初始化
+	$.xuebox({boxPosition:'center'});
+    //简单内容载入框
+	$("#simple").click(function(){
+		$.xuebox.open('这是一个简单内容载入框，简单测试','内容测试标题');
+	})
+	//载入jquery选择器内容
+	$("#selector").click(function(){
+		$.xuebox.local('#selectorCon');
+	})
+	//信息提示框
+	$("#dialog").click(function(){
+		$.xuebox.dialog('重要信息提示！');
+	})
+	//确认信息框
+	$("#confirm").click(function(){
+		$.xuebox.confirm('确认后将跳转到http://blog.xuefree.com', 'http://blog.xuefree.com', '确认跳转吗？');
+	})
+	//ajax内容
+	$("#ajaxCon").click(function(){
+		$.xuebox.ajax('test.html', '载入test页面');
+	})
+	//iframe内容
+	$("#iframeCon").click(function(){
+		$.xuebox.iframe('http://www.baidu.com', '载入iframe页面');
+	})
+	
+});
+</script>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="header">xueBox 简单演示文档</div>
+  <div class="content">
+  <p class="even">
+  注：本演示文档为最简单使用实例，调用xueBox api可开发更多引用方式。<br />
+  若有任何疑问请联系  Email: admin@xuefree.com<br />
+  技术支持blog：<a href="http://blog.xuefree.com">键盘人生</a>
+  </p>
+  <p>
+  简单通用内容演示 <a id="simple" href="#">点击这里</a><br/>
+  代码：<br/>
+    $("#simple").click(function(){
+		$.xuebox.open('这是一个简单内容载入框，简单测试','内容测试标题');
+	})
+  </p>
+  <p class="even">
+  载入jquery选择器内容演示 <a id="selector" href="#">点击这里</a><br/>
+  代码：<br/>
+	$("#selector").click(function(){
+		$.xuebox.local('#selectorCon');
+	})
+  </p>
+  <p>
+  信息提示演示 <a id="dialog" href="#">点击这里</a><br/>
+  代码：<br/>
+	$("#dialog").click(function(){
+		$.xuebox.dialog('重要信息提示！');
+	})
+  </p>
+  <p class="even">
+  确认信息提示演示 <a id="confirm" href="#">点击这里</a><br/>
+  代码：<br/>
+	$("#confirm").click(function(){
+		$.xuebox.confirm('确认后将跳转到http://blog.xuefree.com', 'http://blog.xuefree.com', '确认跳转吗？');
+	})
+  </p>
+  <p>
+  ajax载入内容演示(暂不支持跨域,需放入服务器目录测试)<a id="ajaxCon" href="#">点击这里</a><br/>
+  代码：<br/>
+	$("#ajaxCon").click(function(){
+		$.xuebox.ajax('test.html', '载入test页面');
+	})
+  </p>
+   <p class="even">
+  载入iframe网页演示 <a id="iframeCon" href="#">点击这里</a><br/>
+  代码：<br/>
+	$("#iframeCon").click(function(){
+		$.xuebox.iframe('http://www.baidu.com', '载入iframe页面');
+	})
+  </p>
+  <span style="color:#999;">Copyright (C) 2014 <a href="http://blog.xuefree.com">Oliver.xue</a> All rights reserved.<span>
+  <div id="selectorCon" style="display:none;">这里是"#selector"选择器的内容啊</div>
+    <!-- end .content --></div>
+  <!-- end .container --></div>
+</body>
+</html>
